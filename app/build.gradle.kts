@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.logging.lifecycleln
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "fregoso.enrique.geoquiz"
-        minSdk = 24
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +35,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    //Modificación
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +51,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.viewmodel)
 }
